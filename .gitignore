@@ -1,0 +1,4 @@
+cypress.env.json
+package-lock.json
+node_modules/
+.idea
