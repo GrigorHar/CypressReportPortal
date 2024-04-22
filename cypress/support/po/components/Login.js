@@ -1,9 +1,7 @@
-import {BasePage} from "../pages/BasePage";
+import { BasePage } from "../pages/BasePage";
+import { getCredentials } from "../../utility/getCredentials";
 
-// const username = Cypress.env('username');
-const password = Cypress.env('password');
-const users = Cypress.env('users')
-const { username } = users.baseUser
+const { username, password } = getCredentials();
 export class LoginPage extends BasePage {
 
     get 'login input'() {

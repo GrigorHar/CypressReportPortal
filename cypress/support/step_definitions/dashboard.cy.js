@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { Dashboard } from '../po/components/Dashboard';
+import { Dashboard } from '../po/pages/Dashboard';
 
 const dashboardPage = new Dashboard();
 
@@ -7,11 +7,11 @@ When('I add a new dashboard', () => {
     dashboardPage.addNewDashboard();
 });
 
-When('I delete the newly added dashboard', () => {
+When('I delete the dashboard', () => {
     dashboardPage.deleteDashboard();
 });
 
-When('I edit the newly added dashboard', () => {
+When('I edit the dashboard', () => {
     cy.wait(500);
     dashboardPage.editDashboard();
 });

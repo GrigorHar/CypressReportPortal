@@ -1,4 +1,5 @@
-import {BasePage} from "../pages/BasePage";
+import { BasePage } from "./BasePage";
+import {uniqueNumber} from "../../utility/generator";
 
 export class Dashboard extends BasePage{
     constructor() {
@@ -6,7 +7,7 @@ export class Dashboard extends BasePage{
         this.editedDashboardName = ''; // Initialize a variable to store the edited dashboard name
     }
     get 'successfully signin msg'() {
-        return cy.contains('Signed in successfully');
+        return this.getElementThatContains('Signed in successfully');
     }
 
     get 'add new dashboard button'() {
@@ -26,15 +27,15 @@ export class Dashboard extends BasePage{
     }
 
     get 'dashboard added successfully'() {
-        return cy.contains('Dashboard has been added');
+        return this.getElementThatContains('Dashboard has been added');
     }
 
     get 'dashboard deleted successfully'() {
-        return cy.contains('Dashboard has been deleted');
+        return this.getElementThatContains('Dashboard has been deleted');
     }
 
     get 'edit dashboard button'() {
-        return cy.contains('Edit');
+        return this.getElementThatContains('Edit');
     }
 
     get 'update button from edit popup'() {
@@ -66,15 +67,13 @@ export class Dashboard extends BasePage{
     }
 
     enterUniqueDashboardName(baseName) {
-        const timestamp = new Date().getTime(); // Get current timestamp
-        const uniqueName = `${baseName}_${timestamp}`; // Combine baseName and timestamp
+        const uniqueName = `${baseName}_${uniqueNumber}`; // Combine baseName and timestamp
         this['new dashboard name from popup'].type(uniqueName); // Type the unique name into the field
         cy.wait(500)
     }
 
     enterUniqueDashboardDescription(baseName) {
-        const timestamp = new Date().getTime(); // Get current timestamp
-        const uniqueName = `${baseName}_${timestamp}`; // Combine baseName and timestamp
+        const uniqueName = `${baseName}_${uniqueNumber}`; // Combine baseName and timestamp
         this['new dashboard name from description'].type(uniqueName); // Type the unique name into the field
         cy.wait(500)
     }

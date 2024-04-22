@@ -2,7 +2,6 @@ const { defineConfig } = require('cypress')
 const {
     addCucumberPreprocessorPlugin,
 } = require('@badeball/cypress-cucumber-preprocessor')
-const browserify = require('@badeball/cypress-cucumber-preprocessor/browserify')
 
 module.exports = defineConfig({
     // These settings apply everywhere unless overridden
@@ -18,8 +17,6 @@ module.exports = defineConfig({
         supportFile: 'cypress/support/index.js',
         async setupNodeEvents(on, config) {
             await addCucumberPreprocessorPlugin(on, config)
-            on('file:preprocessor', browserify.default(config))
-
             const regexp = /(local|web|).js/g
             const matchResult = [...config.configFile.matchAll(regexp)]
             const env = matchResult[0][1].toUpperCase()
