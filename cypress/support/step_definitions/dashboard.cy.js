@@ -28,8 +28,8 @@ Then('the dashboard should be edited successfully', () => {
     dashboardPage.verifyDashboardEditedSuccessfully();
 });
 
-When('I fill dashboard popup inputs and save', () => {
-    dashboardPage.enterUniqueDashboardName('name');
-    dashboardPage.enterUniqueDashboardDescription('description');
+When(/^I fill dashboard popup inputs with name "(.*)" and "(.*)" and save$/, (name, description) => {
+    dashboardPage.enterUniqueDashboardName(name);
+    dashboardPage.enterUniqueDashboardDescription(description);
     dashboardPage.saveNewAddedDashboard();
 });

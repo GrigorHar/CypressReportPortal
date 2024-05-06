@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:local": "npx cypress open --env --config-file cypress/config/local",
-    "test:web": "npx cypress open --env --config-file cypress/config/web.js"
+    "cy:open": "cypress open --env",
+    "cy:open:local": "npm run cy:open -- --config-file cypress/config/local",
+    "cy:open:web": "npm run cy:open -- --config-file cypress/config/web.js"
   },
   "author": "Grigor",
   "license": "ISC",

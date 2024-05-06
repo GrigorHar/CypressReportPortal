@@ -1,7 +1,9 @@
-import { BasePage } from "../pages/BasePage";
-import { getCredentials } from "../../utility/getCredentials";
+import BasePage from "../pages/BasePage";
+import {getBaseUrl, getCredentials} from "../../utility/getCredentials";
 
 const { username, password } = getCredentials();
+const baseUrl = getBaseUrl();
+
 export class LoginPage extends BasePage {
 
     get 'login input'() {
@@ -17,7 +19,7 @@ export class LoginPage extends BasePage {
     }
 
     visit() {
-        cy.visit('https://reportportal.epam.com/');
+        cy.visit(baseUrl);
     }
 
     enterCredentials() {

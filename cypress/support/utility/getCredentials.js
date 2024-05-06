@@ -8,7 +8,9 @@ function getCredentials() {
     const password = Cypress.env('password');
     return { username, password };
 }
-
+function getBaseUrl(){
+    return Cypress.config('baseUrl');
+}
 /**
  * Retrieves a specific environment variable value.
  * @param {string} key The key corresponding to the environment variable.
@@ -21,5 +23,6 @@ function getSecretValue(key) {
 
 module.exports = {
     getCredentials,
-    getSecretValue
+    getSecretValue,
+    getBaseUrl
 };
